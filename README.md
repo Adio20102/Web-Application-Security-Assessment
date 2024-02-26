@@ -83,6 +83,68 @@ URL:<ul><li>http://testphp.vulnweb.com/hpp/params.php?p=valid&pp=12</li></ul>
 </ol>
 
 
+<br>
+<h2>4) .htaccess Information Leak</h2>
+URL:<ul><li>http://testphp.vulnweb.com/Mod_Rewrite_Shop/.htaccess</li></ul>
+<br>
+<code>Description:</code> htaccess files can be used to alter the configuration of the Apache Web Server software to enable/disable additional functionality and features that the Apache Web Server software has to offer. <br><br>
+<code>Mitigation:</code> <ul>
+  <li> Ensure the .htaccess file is not accessible.</li>
+</ul>
+
+
+<br>
+<h2>5) XSLT Injection</h2>
+<code>Description:</code> Injection using XSL transformations may be possible, and may allow an attacker to read system information, read and write files, or execute arbitrary code.<br><br>
+<code>Mitigation:</code> <ul>
+  <li> Sanitize and analyze every user input coming from any client-side.</li>
+</ul>
+
+
+<br>
+<h2>6) XSS Attack</h2>
+<code>Evidence:</code> </li> scrIpt>alert(1);</scRipt><li>
+<br>
+<code>Description:</code> htaccess files can be used to alter the configuration of the Apache Web Server software to enable/disable additional functionality and features that the Apache Web Server software has to offer. <br><br>
+<code>Mitigation:</code> <ul>
+  <li> Use trusted libraries for automatic encoding. Know how data moves and use proper encoding throughout. Double-check client-side security on the server. Protect session cookies with HttpOnly flag. Validate all input strictly, assuming it's malicious. Combine these tips for maximum XSS security!</li>
+</ul>
+
+<br>
+<h2>7) Backup File Disclosure</h2>
+<code>Description:</code> A backup of the file was disclosed by the web server <br><br>
+<code>Mitigation:</code> <ul>
+  <li> Do not edit files in-situ on the web server, and ensure that un-necessary files (including hidden files) are removed from the web server.</li>
+</ul>
+
+
+<br>
+<h2>8) Clickjacking</h2>
+<code>Description:</code> The server response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks. <br><br>
+<code>Mitigation:</code> <ul>
+  <li>  Ensure one of them is set on all web pages returned by your site/app.</li>
+</ul>
+
+
+<br>
+<h2>9) Server Information Leak</h2>
+<code>Cause:</code> <ul>
+  <li> Via "Server" HTTP Response Header Field</li>
+  <li> Via "X-Powered-By" HTTP Response Header Field(s)</li></ul>
+<code>Description:</code> The web/application server is leaking information via these HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to.<br><br>
+<code>Mitigation:</code> <ul>
+  <li> Ensure that your web server, application server, load balancer, etc. is configured to suppress these headers.</li>
+</ul>
+
+
+<br>
+<h2>10) X-Content-Type-Options Header Missing</h2>
+<code>Description:</code> The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type.<br><br>
+<code>Mitigation:</code> <ul>
+  <li> Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</li>
+</ul>
+
+
 
 
 
